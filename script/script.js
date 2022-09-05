@@ -4,10 +4,10 @@ function changeColor(e) {
 
 function changeSquareNumber() {
     const allSquareDiv = document.querySelectorAll('.div') 
-    squareDiv = prompt('New number of squares per side');
+    squareDiv = prompt('New number of squares per side. Maximum 100.');
 
     while (squareDiv > 100) {
-        squareDiv = prompt('Too big.')
+        squareDiv = prompt('Too many.')
     }
 
     btn.textContent = `Change number of squares per side. Current: ${squareDiv}x${squareDiv}`;
