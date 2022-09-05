@@ -7,10 +7,10 @@ function changeSquareNumber() {
     squareDiv = prompt('New number of squares per side. Maximum 100.');
 
     while (squareDiv > 100) {
-        squareDiv = prompt('Too many.')
+        squareDiv = prompt('Too many. Maximum 100.')
     }
 
-    btn.textContent = `Change number of squares per side. Current: ${squareDiv}x${squareDiv}`;
+    btn.textContent = `Change the number of squares per side. Current: ${squareDiv}x${squareDiv}`;
 
     allSquareDiv.forEach(div => div.remove());
     
@@ -30,7 +30,7 @@ const btn = document.createElement('button');
 let squareDiv = 16;
 
 container.classList.add('container');
-btn.appendChild(document.createTextNode('Change number of squares per side. Current: 16x16'));
+btn.appendChild(document.createTextNode('Change the number of squares per side. Current: 16x16'));
 btn.classList.add('btn');
 btn.addEventListener('click', changeSquareNumber);
 bod.prepend(container);
