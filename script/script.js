@@ -6,22 +6,29 @@ function createSquareDiv(num = 16) {
         div.style.minWidth = 100 / num + '%';
         div.addEventListener('mouseover', changeColor);
         container.appendChild(div);
+        btn.textContent = `Change the number of squares per side. Current: ${num}x${num}`;
     }
 }
 
 function changeSquareNumber() {
     const allSquareDiv = document.querySelectorAll('.div') 
     let squareDiv = prompt('New number of squares per side. Maximum 100.');
+    percent = 0.10;
     
     while (squareDiv > 100) {
         squareDiv = prompt('Too many. Maximum 100.')
     }
     
-    btn.textContent = `Change the number of squares per side. Current: ${squareDiv}x${squareDiv}`;
-    
     allSquareDiv.forEach(div => div.remove());
     
-    createSquareDiv(squareDiv);
+    if (parseInt(squareDiv)) {
+        btn.textContent = `Change the number of squares per side. Current: ${squareDiv}x${squareDiv}`;
+    
+        createSquareDiv(squareDiv);
+    } else {
+        createSquareDiv();
+    }
+
 }
 
 function changeColor(e) {
@@ -44,7 +51,7 @@ const container = document.createElement('div');
 const btn = document.createElement('button');
 const div = Array.from(document.querySelectorAll('.div'));
 const divColors = [];
-let percent = 0;
+let percent = 0.10;
 
 container.classList.add('container');
 btn.appendChild(document.createTextNode('Change the number of squares per side. Current: 16x16'));
